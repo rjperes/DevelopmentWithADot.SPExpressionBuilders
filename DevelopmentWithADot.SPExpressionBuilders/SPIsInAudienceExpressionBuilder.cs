@@ -14,11 +14,11 @@ namespace DevelopmentWithADot.SPExpressionBuilders
 		#region Public static methods
 		public static Boolean IsInAudience(String audienceNames)
 		{
-			AudienceManager manager = new AudienceManager();
+			var manager = new AudienceManager();
 
-			foreach (String audienceGroup in audienceNames.Split(','))
+			foreach (var audienceGroup in audienceNames.Split(','))
 			{
-				Boolean all = true;
+				var all = true;
 
 				foreach (String audienceName in audienceGroup.Split('+'))
 				{

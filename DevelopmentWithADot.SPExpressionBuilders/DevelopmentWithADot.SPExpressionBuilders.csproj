@@ -38,11 +38,11 @@
     <AssemblyOriginatorKeyFile>..\..\DevelopmentWithADot.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Office.Server, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.SharePoint.Publishing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
-    <Reference Include="System" />
+		<Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+		<Reference Include="Microsoft.Office.Server.UserProfiles, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+		<Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+		<Reference Include="Microsoft.SharePoint" />
+		<Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -59,7 +59,7 @@
     <Compile Include="SPHasPermissionExpressionBuilder.cs" />
     <Compile Include="SPIsInAudienceExpressionBuilder.cs" />
     <Compile Include="SPIsInGroupExpressionBuilder.cs" />
-    <Compile Include="SPPropertyExpressionBuilder.cs" />
+    <Compile Include="SPProfilePropertyExpressionBuilder.cs" />
     <Compile Include="SPPublishingPageExpressionBuilder.cs" />
     <Compile Include="SPQueryStringExpressionBuilder.cs" />
     <Compile Include="SPWebPropertyExpressionBuilder.cs" />

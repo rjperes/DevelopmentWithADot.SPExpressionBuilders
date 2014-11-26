@@ -12,13 +12,13 @@ namespace DevelopmentWithADot.SPExpressionBuilders
 		#region Public static methods
 		public static Boolean HasPermission(String permissions)
 		{
-			foreach (String permissionGroup in permissions.Split(','))
+			foreach (var permissionGroup in permissions.Split(','))
 			{
-				Boolean all = true;
+				var all = true;
 
-				foreach (String permission in permissionGroup.Split('+'))
+				foreach (var permission in permissionGroup.Split('+'))
 				{
-					SPBasePermissions perm = (SPBasePermissions)Enum.Parse(typeof(SPBasePermissions), permission, true);
+					var perm = (SPBasePermissions)Enum.Parse(typeof(SPBasePermissions), permission, true);
 
 					if (SPContext.Current.ListItem.DoesUserHavePermissions(perm) == false)
 					{

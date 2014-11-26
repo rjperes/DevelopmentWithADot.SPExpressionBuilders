@@ -1,25 +1,22 @@
 ﻿using System;
+using System.Web;
 using System.Web.Compilation;
 using System.Web.UI;
+using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 
 namespace DevelopmentWithADot.SPExpressionBuilders
 {
-	[ExpressionPrefix("SPWebProperty")]
-	public sealed class SPWebPropertyExpressionBuilder : ConvertedExpressionBuilder
+	[ExpressionPrefix("SPProfileProperty")]
+	public sealed class SPProfilePropertyExpressionBuilder : ConvertedExpressionBuilder
 	{
 		#region Public static methods
 		public static Object GetValue(String propertyName, Type propertyType)
 		{
-			var parts = propertyName.Split('/');
-			var web = SPContext.Current.Web;
-
-			foreach (var part in parts)
-			{
-				web = web.Webs[part];
-			}
-
-			var propertyValue = web.AllProperties[propertyName];
+			var serviceContext = SPServiceContext.GetContext(HttpContext.Current);
+			var upm = new UserProfileManager(serviceContext);
+			var up = upm.GetUserProfile(false);
+			var propertyValue = (up[propertyName] != null) ? up[propertyName].Value : null;
 
 			return (Convert(propertyValue, propertyType));
 		}

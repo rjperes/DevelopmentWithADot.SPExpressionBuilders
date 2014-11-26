@@ -15,11 +15,11 @@ namespace DevelopmentWithADot.SPExpressionBuilders
 		#region Public static methods
 		public static Boolean IsInGroup(String groupNames)
 		{
-			foreach (String groupGroup in groupNames.Split(','))
+			foreach (var groupGroup in groupNames.Split(','))
 			{
-				Boolean all = true;
+				var all = true;
 
-				foreach (String groupName in groupGroup.Split('+'))
+				foreach (var groupName in groupGroup.Split('+'))
 				{
 					if (SPControl.GetContextWeb(HttpContext.Current).CurrentUser.Groups.OfType<SPGroup>().Any(x => String.Equals(x.Name, groupName, StringComparison.OrdinalIgnoreCase)) == false)
 					{
@@ -39,15 +39,13 @@ namespace DevelopmentWithADot.SPExpressionBuilders
 
 		#endregion
 
+		#region Public override methods
+
 		public override Boolean SupportsEvaluate
 		{
-			get
-			{
-				return (true);
-			}
+			get { return (true); }
 		}
 
-		#region Public override methods
 		public override Object EvaluateExpression(Object target, BoundPropertyEntry entry, Object parsedData, ExpressionBuilderContext context)
 		{
 			return (IsInGroup(entry.Expression));
